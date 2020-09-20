@@ -13,7 +13,7 @@ from bokeh.plotting import figure, ColumnDataSource
 from bokeh.models.tools import HoverTool
 
 # Read in data
-df = pd.read_csv('https://raw.githubusercontent.com/hgoers/election_violence_dashboard/master/upcoming_election_vio.csv')[['date', 'status', 'country', 'pred_vio']]
+df = pd.read_csv('https://raw.githubusercontent.com/hgoers/upcoming_elections_dash/master/upcoming_election_vio.csv')[['date', 'status', 'country', 'pred_vio']]
 
 # Filter for upcoming elections
 df['date'] = pd.to_datetime(df['date'])
