@@ -50,8 +50,6 @@ p.yaxis.axis_label='Countries'
 p.xgrid.grid_line_alpha=.75
 p.ygrid.grid_line_alpha = .55
 
-output_file('upcoming_elections.html')
-
 curdoc().add_root(p)
 
 #show(p)
