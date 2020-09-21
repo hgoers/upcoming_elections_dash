@@ -39,7 +39,7 @@ p = figure(y_range=countries, x_range=(0,100),
            title='The predicted risk of election-related violence at upcoming elections', 
            x_axis_label='Predicted risk of election-related violence (%)',
            plot_width=1000,
-           plot_height=600,
+           plot_height=500,
            tools='save')
 
 p.hbar(y='country', right='pred_vio', height=0.5, color='orange', fill_alpha=0.5,
