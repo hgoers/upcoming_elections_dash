@@ -40,6 +40,7 @@ p = figure(y_range=countries, x_range=(0,100),
            x_axis_label='Predicted risk of election-related violence (%)',
            plot_width=1000,
            plot_height=500,
+           toolbar_location = 'above',
            tools='save')
 
 p.hbar(y='country', right='pred_vio', height=0.5, color='orange', fill_alpha=0.5,
@@ -56,4 +57,4 @@ p.ygrid.grid_line_alpha = .55
 
 curdoc().add_root(p)
 
-show(p)
+#show(p)
