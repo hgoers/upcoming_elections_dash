@@ -38,7 +38,7 @@ vio = list(df['pred_vio'])
 p = figure(y_range=countries, x_range=(0,100), 
            title='The predicted risk of election-related violence at upcoming elections', 
            x_axis_label='Predicted risk of election-related violence (%)',
-           plot_width=975,
+           plot_width=950,
            plot_height=500,
            toolbar_location = 'above',
            tools='save')
