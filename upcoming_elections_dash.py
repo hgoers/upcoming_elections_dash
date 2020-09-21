@@ -24,7 +24,9 @@ df['pred_vio'] = df['pred_vio']*100
 df = df[df['date']>pd.to_datetime('today')].sort_values(by=['date']).head(10)
 df = df.drop_duplicates(subset='country', keep='last').sort_values(by=['date'], ascending=False)
 df = df.fillna(2)
-df['date'] = df['date'].dt.strftime('%d-%m-%Y')
+df['date'] = df['date'].dt.strftime('%d-%B-%Y')
+df['date'] = '(' + df['date'] + ')'
+df['country'] = df['country'].str.cat(df['date'],sep=" ")
 
 # Prepare data for visualisation
 source = ColumnDataSource(df)
@@ -33,7 +35,8 @@ countries = source.data['country'].tolist()
 vio = list(df['pred_vio'])
 
 # Plot figure
-p = figure(y_range=countries, x_range=(0,100), title='The predicted risk of election-related violence at upcoming elections', 
+p = figure(y_range=countries, x_range=(0,100), 
+           title='The predicted risk of election-related violence at upcoming elections', 
            x_axis_label='Predicted risk of election-related violence (%)',
            plot_width=1000,
            plot_height=600,
@@ -53,4 +56,4 @@ p.ygrid.grid_line_alpha = .55
 
 curdoc().add_root(p)
 
-#show(p)
+show(p)
