@@ -11,6 +11,7 @@ import pandas as pd
 from bokeh.io import output_file, show
 from bokeh.plotting import figure, ColumnDataSource
 from bokeh.models.tools import HoverTool
+from bokeh.plotting import curdoc
 
 # Read in data
 df = pd.read_csv('https://raw.githubusercontent.com/hgoers/upcoming_elections_dash/master/upcoming_election_vio.csv')[['date', 'status', 'country', 'pred_vio']]
