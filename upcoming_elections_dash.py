@@ -14,7 +14,7 @@ from bokeh.models.tools import HoverTool
 from bokeh.plotting import curdoc
 
 # Read in data
-df = pd.read_csv('https://raw.githubusercontent.com/hgoers/election_violence_dashboard/master/upcoming_election_vio.csv')[['date', 'status', 'country', 'pred_vio']]
+df = pd.read_csv('https://raw.githubusercontent.com/hgoers/election_violence_dashboard/master/upcoming_election_vio.csv')[['date', 'status', 'country', 'election', 'pred_vio']]
 
 # Filter for upcoming elections
 df['date'] = pd.to_datetime(df['date'])
@@ -46,7 +46,7 @@ p = figure(y_range=countries, x_range=(0,100),
 p.hbar(y='country', right='pred_vio', height=0.5, color='orange', fill_alpha=0.5,
        source=source)
 
-hover = HoverTool(tooltips = [('Election date', '@date'),
+hover = HoverTool(tooltips = [('Election', '@election'),
                               ('Election status', '@status'),
                               ('Risk of election violence (%)', '@pred_vio{1.11}')])
 p.add_tools(hover)
@@ -57,4 +57,4 @@ p.ygrid.grid_line_alpha = .55
 
 curdoc().add_root(p)
 
-#show(p)
+show(p)
