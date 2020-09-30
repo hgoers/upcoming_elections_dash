@@ -21,7 +21,7 @@ df['date'] = pd.to_datetime(df['date'])
 
 # Clean data
 df['pred_vio'] = df['pred_vio']*100
-df = df[df['date']>pd.to_datetime('today')].sort_values(by=['date']).head(10)
+df = df[df['date']>pd.to_datetime('today')].sort_values(by=['date']).head(15)
 df = df.drop_duplicates(subset='country', keep='last').sort_values(by=['date'], ascending=False)
 df = df.fillna(2)
 df['date'] = df['date'].dt.strftime('%d-%B-%Y')
@@ -57,4 +57,4 @@ p.ygrid.grid_line_alpha = .55
 
 curdoc().add_root(p)
 
-show(p)
+#show(p)
